@@ -14,3 +14,5 @@ Route::get('/user', function (Request $request) {
 Route::get('livros', [LivroController::class, 'index']);
 
 Route::get('autores', [AutorController::class, 'index']);
+
+Route::get('editora', [EditoraController::class, 'index']);

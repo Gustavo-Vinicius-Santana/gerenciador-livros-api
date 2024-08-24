@@ -8,5 +8,7 @@ use App\Models\Livro;
 
 class EditoraRepository {
 
-    //
+    public function  getTodasEditoras(){
+        return Editora::all();
+    }
 }
