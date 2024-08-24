@@ -18,4 +18,6 @@ class Livro extends Model
     {
         return $this->belongsTo(Editora::class);
     }
+
+    protected $fillable = ['titulo', 'resumo', 'data_lancamento', 'autores_id', 'editoras_id'];
 }

@@ -10,9 +10,11 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+// CRUD dos livros
+Route::apiResource('/livro', LivroController::class);
 
-Route::get('livros', [LivroController::class, 'index']);
+// CRUD do autor
+Route::apiResource('/autor', AutorController::class);
 
-Route::get('autores', [AutorController::class, 'index']);
-
-Route::get('editora', [EditoraController::class, 'index']);
+// CRUD da editora
+Route::apiResource('/editora', EditoraController::class);
