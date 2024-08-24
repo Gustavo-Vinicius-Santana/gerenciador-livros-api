@@ -12,4 +12,6 @@ class Editora extends Model
     {
         return $this->hasMany(Livro::class);
     }
+
+    protected $fillabe = ['nome'];
 }
