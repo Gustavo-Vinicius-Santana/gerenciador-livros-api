@@ -20,4 +20,30 @@ class AutorController extends Controller
 
         return response()->json($autor);
     }
+
+    public function show($id){
+        $autor = $this->autorRepository->finEditora($id);
+
+        return response()->json($autor);
+    }
+
+    public function store(Request $request){
+        $data = $request;
+        $autor = $this->autorRepository->storeEditora($data);
+
+        return response()->json($autor, 201);
+    }
+
+    public function update(Request $request, $id){
+        $data = $request;
+        $autor = $this->autorRepository->updateEditora($id, $data);
+
+        return response()->json($autor);
+    }
+
+    public function destroy($id){
+        $this->autorRepository->delete($id);
+
+        return response()->json(null, 204);
+    }
 }
