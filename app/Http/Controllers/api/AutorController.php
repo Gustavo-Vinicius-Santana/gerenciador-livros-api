@@ -22,7 +22,7 @@ class AutorController extends Controller
     }
 
     public function show($id){
-        $autor = $this->autorRepository->finEditora($id);
+        $autor = $this->autorRepository->findAutor($id);
 
         return response()->json($autor);
     }
@@ -42,7 +42,7 @@ class AutorController extends Controller
     }
 
     public function destroy($id){
-        $this->autorRepository->delete($id);
+        $this->autorRepository->deleteAutor($id);
 
         return response()->json(null, 204);
     }

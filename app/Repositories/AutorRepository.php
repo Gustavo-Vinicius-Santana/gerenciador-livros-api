@@ -28,7 +28,7 @@ class AutorRepository {
     }
 
     public function deleteAutor(int $id){
-        $autor = $this->find($id);
+        $autor = Autor::find($id);
         $autor->delete();
     }
 }
