@@ -28,8 +28,8 @@ class AutorController extends Controller
     }
 
     public function store(Request $request){
-        $data = $request;
-        $autor = $this->autorRepository->storeEditora($data);
+        $data = $request->all();
+        $autor = $this->autorRepository->storeAutor($data);
 
         return response()->json($autor, 201);
     }

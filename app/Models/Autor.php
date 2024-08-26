@@ -14,5 +14,5 @@ class Autor extends Model
         return $this->hasMany(Livro::class);
     }
 
-    protected $fillabe = ['nome'];
+    protected $fillable = ['nome'];
 }
