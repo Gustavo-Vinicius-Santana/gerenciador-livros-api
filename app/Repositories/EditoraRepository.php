@@ -20,9 +20,9 @@ class EditoraRepository {
         return Editora::findOrFail($id);
     }
 
-    public function updateLivro(int $id, array $data ){
-        $editora = $this->find($id);
-        $editora = $this->update($data);
+    public function updateEditora(int $id, array $data ){
+        $editora = Editora::find($id);
+        $editora->update($data);
 
         return $editora;
     }

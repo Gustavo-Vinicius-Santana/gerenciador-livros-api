@@ -35,7 +35,7 @@ class EditoraController extends Controller
     }
 
     public function update(Request $request, $id){
-        $data = $request;
+        $data = $request->all();
         $editora = $this->editoraRepository->updateEditora($id, $data);
 
         return response()->json($editora);
