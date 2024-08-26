@@ -22,7 +22,7 @@ class EditoraController extends Controller
     }
 
     public function show($id){
-        $editora = $this->editoraRepository->finEditora($id);
+        $editora = $this->editoraRepository->findEditora($id);
 
         return response()->json($editora);
     }
@@ -42,7 +42,7 @@ class EditoraController extends Controller
     }
 
     public function destroy($id){
-        $this->editoraRepository->delete($id);
+        $this->editoraRepository->deleteEditora($id);
 
         return response()->json(null, 204);
     }

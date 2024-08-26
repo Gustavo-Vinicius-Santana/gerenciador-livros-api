@@ -27,8 +27,8 @@ class EditoraRepository {
         return $editora;
     }
 
-    public function deleteLivro(int $id){
-        $editora = $this->find($id);
+    public function deleteEditora(int $id){
+        $editora = Editora::find($id);
         $editora->delete();
     }
 }
