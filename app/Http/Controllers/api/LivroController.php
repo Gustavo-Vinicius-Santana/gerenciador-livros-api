@@ -37,7 +37,8 @@ class LivroController extends Controller
     }
 
     public function update(Request $request, $id){
-        $livro = $this->livroRepository->update($id, $data);
+        $data = $request->all();
+        $livro = $this->livroRepository->updateLivro($id, $data);
 
         return response()->json($livro);
     }

@@ -21,8 +21,9 @@ class LivroRepository {
     }
 
     public function updateLivro(int $id, array $data){
-        $livro = $this->find($id);
-        $livro = $this->update($data);
+        $livro = Livro::find($id);
+        $livro->update($data);
+
         return $livro;
     }
 
