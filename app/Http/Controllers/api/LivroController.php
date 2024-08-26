@@ -23,7 +23,6 @@ class LivroController extends Controller
     }
 
     public function show($id){
-        $id = $request;
         $livro = $this->livroRepository->findLivro($id);
 
         return response()->json($livro);
