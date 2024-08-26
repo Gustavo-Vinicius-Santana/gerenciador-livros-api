@@ -17,7 +17,13 @@ class AutorRepository {
     }
 
     public function findAutor(int $id){
-        return Autor::findOrFail($id);
+        $autor = Autor::find($id);
+
+        if ($autor) {
+            return $autor;
+        } else {
+            return null;
+        }
     }
 
     public function updateAutor(int $id, array $data ){

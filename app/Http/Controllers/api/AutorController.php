@@ -4,15 +4,18 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\AutorRepository;
+use App\Services\AutorService;
 use Illuminate\Http\Request;
 
 class AutorController extends Controller
 {
     protected $autorRepository;
+    protected $autorService;
 
     public function __construct()
     {
         $this->autorRepository = new AutorRepository();
+        $this->autorService = new AutorService();
     }
 
     public function index(){
@@ -45,5 +48,21 @@ class AutorController extends Controller
         $this->autorRepository->deleteAutor($id);
 
         return response()->json(null, 204);
+    }
+
+    public function autorLivros($id){
+        $autor = $this->autorRepository->findAutor($id);
+        $livros = $this->autorService->findAutorLivros($id);
+
+        if(is_string($livros)){
+            return response()->json(['error' => $livros], 404);
+        }
+        else if($livros->isEmpty()){
+            return response()->json(['message' => "não há livros cadastrados", 'autor' => $autor, 'livros' => $livros]);
+        }
+        else{
+            return response()->json(['autor' => $autor, 'livros' =>$livros]);
+        }
+
     }
 }
