@@ -21,8 +21,8 @@ class AutorRepository {
     }
 
     public function updateAutor(int $id, array $data ){
-        $autor = $this->find($id);
-        $autor = $this->update($data);
+        $autor = Autor::find($id);
+        $autor->update($data);
 
         return $autor;
     }

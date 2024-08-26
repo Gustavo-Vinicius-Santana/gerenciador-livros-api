@@ -35,8 +35,8 @@ class AutorController extends Controller
     }
 
     public function update(Request $request, $id){
-        $data = $request;
-        $autor = $this->autorRepository->updateEditora($id, $data);
+        $data = $request->all();
+        $autor = $this->autorRepository->updateAutor($id, $data);
 
         return response()->json($autor);
     }
