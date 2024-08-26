@@ -43,7 +43,7 @@ class LivroController extends Controller
     }
 
     public function destroy($id){
-        $this->livroRepository->delete($id);
+        $this->livroRepository->deleteLivro($id);
         return response()->json(null, 204);
     }
 }

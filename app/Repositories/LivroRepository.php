@@ -28,7 +28,7 @@ class LivroRepository {
     }
 
     public function deleteLivro(int $id){
-        $livro = $this->find($id);
+        $livro = Livro::find($id);
         $livro->delete();
     }
 }
