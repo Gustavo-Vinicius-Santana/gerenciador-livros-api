@@ -28,7 +28,7 @@ class EditoraController extends Controller
     }
 
     public function store(Request $request){
-        $data = $request;
+        $data = $request->all();
         $editora = $this->editoraRepository->storeEditora($data);
 
         return response()->json($editora, 201);
