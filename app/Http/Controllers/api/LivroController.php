@@ -30,8 +30,8 @@ class LivroController extends Controller
     }
 
     public function store(Request $request){
-        $data = $request;
-        $livro = $this->livroRepository->store($data);
+        $data = $request->all();
+        $livro = $this->livroRepository->storeLivro($data);
 
         return response()->json($livro, 201);
     }

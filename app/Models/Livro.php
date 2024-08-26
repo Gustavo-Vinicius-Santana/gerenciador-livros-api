@@ -20,4 +20,8 @@ class Livro extends Model
     }
 
     protected $fillable = ['titulo', 'resumo', 'data_lancamento', 'autores_id', 'editoras_id'];
+
+    protected $casts = [
+        'data_lancamento' => 'date'
+    ];
 }
