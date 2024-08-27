@@ -23,7 +23,7 @@ class EditoraService
     public function findEditoraLivros(int $id){
         $editora = $this->editoraRepository->findEditora($id);
         if($editora === null){
-            return ['message' => 'não há autores com esse id.'];
+            return ['message' => 'não há editoras com esse id.'];
         }
 
         $livros = $this->livroRepository->getTodosLivros();
