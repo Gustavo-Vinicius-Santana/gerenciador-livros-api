@@ -39,4 +39,10 @@ class LivroService
 
         return ['livro' => $livro, 'editora' => $editora, 'autor' => $autor];
     }
+
+    public function getBuscaLivro(string $titulo){
+        $livros = $this->livroRepository->findLivroNome($titulo);
+
+        return ['livros' => $livros];
+    }
 }

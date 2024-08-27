@@ -37,4 +37,10 @@ class LivroRepository {
         $livro = Livro::find($id);
         $livro->delete();
     }
+
+    public function findLivroNome(string $nome){
+        $livros = Livro::where('titulo', 'LIKE', '%' . $nome . '%')->get();
+
+        return $livros;
+    }
 }

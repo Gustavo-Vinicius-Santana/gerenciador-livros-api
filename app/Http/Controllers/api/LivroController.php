@@ -54,4 +54,11 @@ class LivroController extends Controller
 
         return response()->json($livroDetail);
     }
+
+    public function buscaLivro(Request $request){
+        $titulo = $request->query('titulo');
+        $buscaLivro = $this->livroService->getBuscaLivro($titulo);
+
+        return response()->json($buscaLivro);
+    }
 }
