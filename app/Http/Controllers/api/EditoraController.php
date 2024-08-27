@@ -55,4 +55,11 @@ class EditoraController extends Controller
 
         return response()->json($editoraLivros);
     }
+
+    public function buscaEditora(Request $request){
+        $nome = $request->query('nome');
+        $buscaEditora = $this->editoraService->buscarEditoraNome($nome);
+
+        return $buscaEditora;
+    }
 }

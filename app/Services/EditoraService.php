@@ -31,4 +31,10 @@ class EditoraService
 
         return ['editora' => $editora, 'livros' => $livrosEditora];
     }
+
+    public function buscarEditoraNome(string $nome){
+        $editoras = $this->editoraRepository->findEditoraNome($nome);
+
+        return ['editoras' => $editoras];
+    }
 }

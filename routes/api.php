@@ -31,3 +31,5 @@ Route::get('/autores/busca', [AutorController::class, 'buscaAutor']);
 Route::apiResource('/editora', EditoraController::class);
 
 Route::get('/editora/editoraLivros/{id}', [EditoraController::class, 'editoraLivros']);
+
+Route::get('/editoras/busca', [EditoraController::class, 'buscaEditora']);

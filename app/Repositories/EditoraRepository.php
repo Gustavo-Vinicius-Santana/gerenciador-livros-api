@@ -37,4 +37,10 @@ class EditoraRepository {
         $editora = Editora::find($id);
         $editora->delete();
     }
+
+    public function findEditoraNome(string $nome){
+        $editoras = Editora::where('nome', 'LIKE', '%' . $nome . '%')->get();
+
+        return $editoras;
+    }
 }
