@@ -55,4 +55,11 @@ class AutorController extends Controller
 
         return response()->json($autorLivros);
     }
+
+    public function buscaAutor(Request $request){
+        $nome = $request->query('nome');
+        $buscaAutor = $this->autorService->buscarAutorNome($nome);
+
+        return response()->json($buscaAutor);
+    }
 }

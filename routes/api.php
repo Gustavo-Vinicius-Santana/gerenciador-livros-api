@@ -19,12 +19,12 @@ Route::get('/livro/livroDetail/{id}', [LivroController::class, 'livroDetail']);
 Route::get('/livros/busca', [LivroController::class, 'buscaLivro']);
 
 
-
-
 // CRUD do autor
 Route::apiResource('/autor', AutorController::class);
 
 Route::get('/autor/autorLivros/{id}', [AutorController::class, 'autorLivros']);
+
+Route::get('/autores/busca', [AutorController::class, 'buscaAutor']);
 
 
 // CRUD da editora

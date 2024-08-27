@@ -29,4 +29,10 @@ class AutorService
 
         return ['autor' => $autor, 'livros' => $livrosAutor];
     }
+
+    public function buscarAutorNome(string $nome){
+        $autores = $this->autorRepository->findAutorNome($nome);
+
+        return ['autores' => $autores];
+    }
 }

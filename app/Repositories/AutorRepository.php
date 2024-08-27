@@ -37,4 +37,10 @@ class AutorRepository {
         $autor = Autor::find($id);
         $autor->delete();
     }
+
+    public function findAutorNome(string $nome){
+        $autores = Autor::where('nome', 'LIKE', '%' . $nome . '%')->get();
+
+        return $autores;
+    }
 }
