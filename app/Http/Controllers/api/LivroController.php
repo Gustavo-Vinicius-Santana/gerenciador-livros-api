@@ -54,4 +54,10 @@ class LivroController extends Controller
 
         return response()->json($livroAutor);
     }
+
+    public function livroEditora(int $id){
+        $livroEditora = $this->livroService->getLivroEditora($id);
+
+        return response()->json($livroEditora );
+    }
 }

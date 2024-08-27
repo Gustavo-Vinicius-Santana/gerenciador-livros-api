@@ -10,15 +10,20 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+
 // CRUD dos livros
 Route::apiResource('/livro', LivroController::class);
 
 Route::get('/livro/livroAutor/{id}', [LivroController::class, 'livroAutor']);
 
+Route::get('/livro/livroEditora/{id}', [LivroController::class, 'livroEditora']);
+
+
 // CRUD do autor
 Route::apiResource('/autor', AutorController::class);
 
 Route::get('/autor/autorLivros/{id}', [AutorController::class, 'autorLivros']);
+
 
 // CRUD da editora
 Route::apiResource('/editora', EditoraController::class);

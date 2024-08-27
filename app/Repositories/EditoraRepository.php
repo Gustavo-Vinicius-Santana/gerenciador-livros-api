@@ -17,7 +17,13 @@ class EditoraRepository {
     }
 
     public function findEditora(int $id){
-        return Editora::findOrFail($id);
+        $editora = Editora::find($id);
+
+        if ($editora){
+            return $editora;
+        } else {
+            return null;
+        }
     }
 
     public function updateEditora(int $id, array $data ){
