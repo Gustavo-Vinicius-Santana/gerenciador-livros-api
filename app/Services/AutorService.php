@@ -19,15 +19,14 @@ class AutorService
     }
 
     public function findAutorLivros(int $id){
-
         $autor = $this->autorRepository->findAutor($id);
         if($autor === null){
-            return "não há autores com esse id.";
+            return ['message' => 'não há autores com esse id.'];
         }
 
         $livros = $this->livroRepository->getTodosLivros();
         $livrosAutor = $livros->where('autores_id', $id);
 
-        return $livrosAutor;
+        return ['autor' => $autor, 'livros' => $livrosAutor];
     }
 }

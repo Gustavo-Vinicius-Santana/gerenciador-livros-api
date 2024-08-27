@@ -51,18 +51,8 @@ class AutorController extends Controller
     }
 
     public function autorLivros($id){
-        $autor = $this->autorRepository->findAutor($id);
-        $livros = $this->autorService->findAutorLivros($id);
+        $autorLivros = $this->autorService->findAutorLivros($id);
 
-        if(is_string($livros)){
-            return response()->json(['error' => $livros], 404);
-        }
-        else if($livros->isEmpty()){
-            return response()->json(['message' => "não há livros cadastrados", 'autor' => $autor, 'livros' => $livros]);
-        }
-        else{
-            return response()->json(['autor' => $autor, 'livros' =>$livros]);
-        }
-
+        return response()->json($autorLivros);
     }
 }
