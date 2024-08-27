@@ -14,9 +14,7 @@ Route::get('/user', function (Request $request) {
 // CRUD dos livros
 Route::apiResource('/livro', LivroController::class);
 
-Route::get('/livro/livroAutor/{id}', [LivroController::class, 'livroAutor']);
-
-Route::get('/livro/livroEditora/{id}', [LivroController::class, 'livroEditora']);
+Route::get('/livro/livroDetail/{id}', [LivroController::class, 'livroDetail']);
 
 
 // CRUD do autor

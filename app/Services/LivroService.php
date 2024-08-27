@@ -21,21 +21,7 @@ class LivroService
         $this->editoraRepository = new EditoraRepository();
     }
 
-    public function getLivroAutor(int $id){
-        $livro = $this->livroRepository->findLivro($id);
-        if($livro === null){
-            return ["message" => "não há livros com esse id."];
-        }
-
-        $autor = $this->autorRepository->findAutor($livro->autores_id);
-        if($autor === null){
-            return ["message" => "não há autores com esse id.", "livro" => $livro];
-        }
-
-        return ['livro' => $livro, 'autor' => $autor];
-    }
-
-    public function getLivroEditora(int $id){
+    public function getLivroDetail($id){
         $livro = $this->livroRepository->findLivro($id);
         if($livro === null){
             return ["message" => "não há livros com esse id."];
@@ -46,6 +32,11 @@ class LivroService
             return ["message" => "não há editoras com esse id.", "livro" => $livro];
         }
 
-        return ['livro' => $livro, 'editora' => $editora];
+        $autor = $this->autorRepository->findAutor($livro->autores_id);
+        if($autor === null){
+            return ["message" => "não há autores com esse id.", "livro" => $livro];
+        }
+
+        return ['livro' => $livro, 'editora' => $editora, 'autor' => $autor];
     }
 }
