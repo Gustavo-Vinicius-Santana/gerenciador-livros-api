@@ -5,14 +5,17 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\EditoraRepository;
+use App\Services\EditoraService;
 
 class EditoraController extends Controller
 {
     protected $autorRepository;
+    protected $editoraService;
 
     public function __construct()
     {
         $this->editoraRepository = new EditoraRepository();
+        $this->editoraService = new EditoraService();
     }
 
     public function index(){
@@ -45,5 +48,11 @@ class EditoraController extends Controller
         $this->editoraRepository->deleteEditora($id);
 
         return response()->json(null, 204);
+    }
+
+    public function editoraLivros($id){
+        $editoraLivros = $this->editoraService->findEditoraLivros($id);
+
+        return response()->json($editoraLivros);
     }
 }

@@ -25,3 +25,5 @@ Route::get('/autor/autorLivros/{id}', [AutorController::class, 'autorLivros']);
 
 // CRUD da editora
 Route::apiResource('/editora', EditoraController::class);
+
+Route::get('/editora/editoraLivros/{id}', [EditoraController::class, 'editoraLivros']);
