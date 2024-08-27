@@ -17,7 +17,13 @@ class LivroRepository {
     }
 
     public function findLivro(int $id){
-        return Livro::findOrFail($id);
+        $livro = Livro::find($id);
+
+        if ($livro) {
+            return $livro;
+        } else {
+            return null;
+        }
     }
 
     public function updateLivro(int $id, array $data){

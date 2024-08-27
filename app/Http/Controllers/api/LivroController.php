@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\LivroRepository;
+use App\Services\LivroService;
 use Illuminate\Http\Request;
 
 class LivroController extends Controller
@@ -14,6 +15,7 @@ class LivroController extends Controller
     {
 
         $this->livroRepository = new LivroRepository();
+        $this->livroService = new LivroService();
     }
 
     public function index(){
@@ -45,5 +47,11 @@ class LivroController extends Controller
     public function destroy($id){
         $this->livroRepository->deleteLivro($id);
         return response()->json(null, 204);
+    }
+
+    public function livroAutor(int $id){
+        $livroAutor = $this->livroService->getLivroAutor($id);
+
+        return response()->json($livroAutor);
     }
 }
