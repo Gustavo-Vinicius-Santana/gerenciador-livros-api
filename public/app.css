@@ -1,0 +1,90 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+header {
+    background-color: #181818;
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+
+nav {
+    list-style: none;
+
+    display: flex;
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+}
+
+li{
+    width: 33%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    display: block;
+}
+a:hover {
+    text-decoration: underline;
+    background-color: #444; /* Adiciona um fundo ao passar o mouse */
+    border-radius: 4px; /* Adiciona bordas arredondadas ao fundo */
+}
+
+
+body{
+    background-color: #1E1E1E; /* Cinza escuro, similar ao fundo escuro do ChatGPT */
+    color: #E0E0E0; /* Cor do texto em um cinza claro para contraste */
+    font-family: Arial, sans-serif;
+}
+main{
+    display: flex;
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+
+}
+
+pre {
+    background-color: #1a1a1a;
+    /*Fundoescuro*/color: #E0E0E0;
+    /*Cordotextoclaro*/padding: 10px;
+    border-radius: 10px;
+    overflow-x: auto;
+    width: 75%;
+}
+
+code {
+    width: 50%; /* Faz com que o código ocupe toda a largura disponível */
+}
+
+.lista-caracteristica-rota li{
+    margin-top: 5px;
+    display: flex;
+    align-items: row;
+    gap: 5px;
+}
+
+.box-principal{
+    width: 90%;
+    background-color: #2D2D2D; /* Cinza um pouco mais claro para o conteúdo principal */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.box-conteudo{
+    margin-left: 5%;
+    margin-bottom: 25px;
+}
+
+.box-endpoint{
+    margin-left: 5%;
+    margin-top: 10px;
+}
+
+.titulo-end-point{
+    margin-top: 50px;
+}
