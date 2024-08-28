@@ -50,7 +50,7 @@
     "titulo": "Livro Exemplo",
     "autores_id": 1,
     "editoras_id": 1,
-    "data_lancamento": 2024-08-26
+    "ano_lancamento": 2024
   }
 ]
                         </code>
@@ -80,7 +80,7 @@
     "titulo": "Livro Exemplo",
     "autores_id": 1,
     "editoras_id": 1,
-    "data_lancamento": 2024-08-26
+    "ano_lancamento": 2024
 }
                         </code>
                     </pre>
@@ -110,7 +110,7 @@
   "titulo": "Livro Exemplo",
   "autor_id": 1,
   "editora_id": 1,
-  "ano_publicacao": 2024-08-26
+  "ano_lancamento": 2024
 }
                         </code>
                     </pre>
@@ -139,7 +139,7 @@
   "titulo": "Livro Atualizado",
   "autor_id": 2,
   "editora_id": 2,
-  "ano_publicacao": 2024-08-26
+  "ano_lancamento": 2024
 }
                         </code>
                     </pre>
@@ -163,9 +163,7 @@
 
                         <pre>
                             <code>
-{
-  "message": "Livro deletado com sucesso."
-}
+                            No body returned for response
                             </code>
                         </pre>
 
@@ -190,28 +188,22 @@
                     <pre>
                         <code>
 {
-	"livro": {
-		"id": 1,
-		"titulo": "titulo livro teste",
-		"resumo": "resumo livro teste",
-		"data_lancamento": "2024-08-26T00:00:00.000000Z",
-		"autores_id": 2,
-		"editoras_id": 2,
-		"created_at": "2024-08-26T18:21:54.000000Z",
-		"updated_at": "2024-08-26T18:21:54.000000Z"
-	},
-	"editora": {
-		"id": 2,
-		"nome": "editora teste",
-		"created_at": "2024-08-26T13:24:42.000000Z",
-		"updated_at": "2024-08-26T13:24:42.000000Z"
-	},
-	"autor": {
-		"id": 2,
-		"nome": "autor teste",
-		"created_at": "2024-08-26T14:18:18.000000Z",
-		"updated_at": "2024-08-26T14:18:18.000000Z"
-	}
+"livro": {
+    "id": 1,
+    "titulo": "titulo livro teste",
+    "resumo": "resumo livro teste",
+    "ano_lancamento": "2024",
+    "autores_id": 2,
+    "editoras_id": 2,
+},
+"editora": {
+    "id": 2,
+    "nome": "editora teste",
+},
+"autor": {
+    "id": 2,
+    "nome": "autor teste",
+}
 }
                         </code>
                     </pre>
@@ -244,15 +236,18 @@
 
                     <pre>
                         <code>
-[
-    {
-        "id": 1,
-        "titulo": "Livro Exemplo",
-        "autor_id": 1,
-        "editora_id": 1,
-        "ano_publicacao": 2024
-    }
-]
+{
+"livros":[
+	{
+    "id": 1,
+    "titulo": "titulo livro teste",
+    "resumo": "resumo livro teste",
+    "ano_lancamento": "2024",
+    "autores_id": 2,
+    "editoras_id": 2,
+	}
+    ]
+}
                         </code>
                     </pre>
 
@@ -384,9 +379,7 @@
 
                     <pre>
                         <code>
-{
-    "message": "Autor deletado com sucesso."
-}
+                        No body returned for response
                         </code>
                     </pre>
 
@@ -411,24 +404,20 @@
                     <pre>
                         <code>
 {
-	"autor": {
-		"id": 2,
-		"nome": "autor teste",
-		"created_at": "2024-08-26T14:18:18.000000Z",
-		"updated_at": "2024-08-26T14:18:18.000000Z"
-	},
-	"livros": [
-		{
-			"id": 1,
-			"titulo": "titulo livro teste",
-			"resumo": "resumo livro teste",
-			"data_lancamento": "2024-08-26T00:00:00.000000Z",
-			"autores_id": 2,
-			"editoras_id": 2,
-			"created_at": "2024-08-26T18:21:54.000000Z",
-			"updated_at": "2024-08-26T18:21:54.000000Z"
-		}
-	]
+"autor": {
+	"id": 2,
+	"nome": "autor teste",
+},
+"livros": [
+    {
+    "id": 1,
+    "titulo": "titulo livro teste",
+    "resumo": "resumo livro teste",
+    "ano_lancamento": "2024",
+    "autores_id": 2,
+    "editoras_id": 2,
+    }
+]
 }
                         </code>
                     </pre>
@@ -462,20 +451,16 @@
                     <pre>
                         <code>
 {
-	"autores": [
-		{
-			"id": 2,
-			"nome": "autor teste",
-			"created_at": "2024-08-26T14:18:18.000000Z",
-			"updated_at": "2024-08-26T14:18:18.000000Z"
-		},
-		{
-			"id": 3,
-			"nome": "autor teste 3",
-			"created_at": "2024-08-26T19:13:23.000000Z",
-			"updated_at": "2024-08-26T19:13:23.000000Z"
-		}
-	]
+"autores": [
+	{
+	"id": 2,
+	"nome": "autor teste",
+	},
+	{
+	"id": 3,
+	"nome": "autor teste 3",
+	}
+]
 }
                         </code>
                     </pre>
@@ -609,9 +594,7 @@
 
                     <pre>
                         <code>
-{
-    "message": "Editora deletada com sucesso."
-}
+                        No body returned for response
                         </code>
                     </pre>
 
@@ -636,24 +619,20 @@
                     <pre>
                         <code>
 {
-	"editora": {
-		"id": 2,
-		"nome": "editora teste",
-		"created_at": "2024-08-26T13:24:42.000000Z",
-		"updated_at": "2024-08-26T13:24:42.000000Z"
-	},
-	"livros": [
-		{
-			"id": 1,
-			"titulo": "titulo livro teste",
-			"resumo": "resumo livro teste",
-			"data_lancamento": "2024-08-26T00:00:00.000000Z",
-			"autores_id": 2,
-			"editoras_id": 2,
-			"created_at": "2024-08-26T18:21:54.000000Z",
-			"updated_at": "2024-08-26T18:21:54.000000Z"
-		}
-	]
+"editora": {
+    "id": 2,
+    "nome": "editora teste",
+},
+"livros": [
+    {
+    "id": 1,
+    "titulo": "titulo livro teste",
+    "resumo": "resumo livro teste",
+    "ano_lancamento": "2024",
+    "autores_id": 2,
+    "editoras_id": 2,
+    }
+]
 }
                         </code>
                     </pre>
@@ -687,14 +666,12 @@
                     <pre>
                         <code>
 {
-	"editoras": [
-		{
-			"id": 2,
-			"nome": "editora teste",
-			"created_at": "2024-08-26T13:24:42.000000Z",
-			"updated_at": "2024-08-26T13:24:42.000000Z"
-		}
-	]
+"editoras": [
+	{
+	"id": 2,
+	"nome": "editora teste",
+	}
+]
 }
                         </code>
                     </pre>
