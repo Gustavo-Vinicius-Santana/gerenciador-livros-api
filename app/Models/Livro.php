@@ -19,7 +19,8 @@ class Livro extends Model
         return $this->belongsTo(Editora::class);
     }
 
-    protected $fillable = ['titulo', 'resumo', 'data_lancamento', 'autores_id', 'editoras_id'];
+    protected $fillable = ['titulo', 'resumo', 'ano_lancamento', 'autores_id', 'editoras_id'];
+    protected $hidden = ['created_at', 'updated_at'];
 
     protected $casts = [
         'data_lancamento' => 'date'

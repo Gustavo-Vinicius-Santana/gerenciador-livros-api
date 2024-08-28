@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('titulo');
             $table->text('resumo');
-            $table->date('data_lancamento');
+            $table->integer('ano_lancamento');
             $table->foreignId('autores_id')->constrained('autores')->onDelete('cascade');
             $table->foreignId('editoras_id')->constrained('editoras')->onDelete('cascade');
             $table->timestamps();

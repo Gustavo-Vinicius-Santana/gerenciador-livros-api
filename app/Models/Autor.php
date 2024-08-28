@@ -15,4 +15,5 @@ class Autor extends Model
     }
 
     protected $fillable = ['nome'];
+    protected $hidden = ['created_at', 'updated_at'];
 }
