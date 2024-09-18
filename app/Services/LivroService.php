@@ -40,6 +40,23 @@ class LivroService
         return ['livro' => $livro, 'editora' => $editora, 'autor' => $autor];
     }
 
+    public function getLivros(){
+        $livros = $this->livroRepository->getTodosLivros();
+
+        foreach ($livros as $livro){
+            $autor = $this->autorRepository->findAutor($livro->autores_id);
+            $editora = $this->editoraRepository->findEditora($livro->editoras_id);
+
+            $autorNome = $autor->nome;
+            $editoraNome = $editora->nome;
+
+            $livro->autor = $autorNome;
+            $livro->editora = $editoraNome;
+        }
+
+        return $livros;
+    }
+
     public function getBuscaLivro(string $titulo){
         $livros = $this->livroRepository->findLivroNome($titulo);
 

@@ -19,7 +19,7 @@ class LivroController extends Controller
     }
 
     public function index(){
-        $livros = $this->livroRepository->getTodosLivros();
+        $livros = $this->livroService->getLivros();
 
         return response()->json($livros);
     }
