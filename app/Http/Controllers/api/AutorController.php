@@ -31,6 +31,10 @@ class AutorController extends Controller
     }
 
     public function store(Request $request){
+        $validatedData = $request->validate([
+            'nome' => 'required|string|max:255'
+        ]);
+
         $data = $request->all();
         $autor = $this->autorRepository->storeAutor($data);
 
@@ -38,6 +42,10 @@ class AutorController extends Controller
     }
 
     public function update(Request $request, $id){
+        $validatedData = $request->validate([
+            'nome' => 'required|string|max:255'
+        ]);
+
         $data = $request->all();
         $autor = $this->autorRepository->updateAutor($id, $data);
 

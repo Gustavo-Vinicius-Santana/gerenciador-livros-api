@@ -31,6 +31,13 @@ class LivroController extends Controller
     }
 
     public function store(Request $request){
+        $validatedData = $request->validate([
+            'titulo' => 'required|string|max:255',
+            'resumo' => 'nullable|string',
+            'autores_id' => 'required|exists:autores,id',
+            'editoras_id' => 'required|exists:editoras,id',
+        ]);
+
         $data = $request->all();
         $livro = $this->livroRepository->storeLivro($data);
 
@@ -38,6 +45,13 @@ class LivroController extends Controller
     }
 
     public function update(Request $request, $id){
+        $validatedData = $request->validate([
+            'titulo' => 'required|string|max:255',
+            'resumo' => 'nullable|string',
+            'autores_id' => 'required|exists:autores,id',
+            'editoras_id' => 'required|exists:editoras,id',
+        ]);
+
         $data = $request->all();
         $livro = $this->livroRepository->updateLivro($id, $data);
 
