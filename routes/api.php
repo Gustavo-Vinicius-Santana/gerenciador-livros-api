@@ -5,10 +5,21 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\LivroController;
 use App\Http\Controllers\Api\EditoraController;
 use App\Http\Controllers\Api\AutorController;
+use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\AuthController;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+// CRUD dos usuarios
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::get('/user', [UserController::class, 'index']);
+Route::get('/user/{id}', [UserController::class, 'show']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::put('/user/{id}', [UserController::class, 'update']);
+    Route::delete('/user/{id}', [UserController::class, 'destroy']);
+});
 
 
 // CRUD dos livros
