@@ -27,7 +27,7 @@ class UserService
             return ['message' => 'esse usuario não existe'];
         }
 
-        return $user->only(['name', 'email']);
+        return $user->only(['name']);
     }
 
     public function createUser(array $data)
