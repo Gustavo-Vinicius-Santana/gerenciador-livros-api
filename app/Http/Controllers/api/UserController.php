@@ -66,4 +66,19 @@ class UserController extends Controller
 
         return response()->json(['message' => 'Usuário deletado com sucesso']);
     }
+
+    public function showWithDetails()
+    {
+        $user = Auth::user();
+
+        if (!$user) {
+            return response()->json(['message' => 'os detalhes desse usuário não existe'], 404);
+        }
+
+        if (Gate::denies('manage-profile', $user)) {
+            return response()->json(['message' => 'Você não tem permissão para ver os detralhes desse perfil'], 403);
+        }
+
+        return response()->json($user);
+    }
 }

@@ -52,4 +52,15 @@ class UserService
         $user = $this->getUserById($id);
         return $this->userRepository->delete($user);
     }
+
+    public function getUserDetailsById($id)
+    {
+        $user = $this->userRepository->findById($id);
+
+        if (!$user) {
+            return ['message' => 'Esse usuário não existe'];
+        }
+
+        return $user->only(['id', 'name', 'email']);
+    }
 }
