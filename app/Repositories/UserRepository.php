@@ -7,7 +7,7 @@ class UserRepository
 {
     public function getAll()
     {
-        return User::all();
+        return User::select('name', 'email')->get();
     }
 
     public function findById($id)
