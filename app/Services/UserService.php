@@ -38,7 +38,7 @@ class UserService
 
     public function updateUser($id, array $data)
     {
-        $user = $this->getUserById($id);
+        $user = $this->userRepository->findById($id);
 
         if (isset($data['password'])) {
             $data['password'] = Hash::make($data['password']);
@@ -49,7 +49,8 @@ class UserService
 
     public function deleteUser($id)
     {
-        $user = $this->getUserById($id);
+        $user = $this->userRepository->findById($id);
+
         return $this->userRepository->delete($user);
     }
 

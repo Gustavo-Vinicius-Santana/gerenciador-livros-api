@@ -33,36 +33,40 @@ class UserController extends Controller
         return response()->json($user);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $userToUpdate = $this->userRepository->findById($id);
+        $userToUpdate = Auth::user();
 
         if (is_null($userToUpdate)) {
             return $this->responseError('Usuário não encontrado para atualização', 404);
         }
 
+        $userId = $userToUpdate->id;
+
         if (Gate::denies('manage-profile', $userToUpdate)) {
             return response()->json(['message' => 'Você não tem permissão para atualizar este perfil'], 403);
         }
 
-        $updatedUser = $this->userService->updateUser($id, $request->all());
+        $updatedUser = $this->userService->updateUser($userId, $request->all());
 
         return response()->json(['message' => 'Usuário atualizado com sucesso']);
     }
 
-    public function destroy($id)
+    public function destroy()
     {
-        $userToDelete = $this->userRepository->findById($id);
+        $userToDelete = Auth::user();
 
         if (is_null($userToDelete)) {
             return $this->responseError('Usuário não encontrado para atualização', 404);
         }
 
+        $userId = $userToDelete->id;
+
         if (Gate::denies('manage-profile', $userToDelete)) {
             return response()->json(['message' => 'Você não tem permissão para deletar este perfil'], 403);
         }
 
-        $this->userService->deleteUser($id);
+        $this->userService->deleteUser($userId);
 
         return response()->json(['message' => 'Usuário deletado com sucesso']);
     }
